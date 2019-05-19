@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<title>Mejor Cocina</title>
+</h:head>
+<h:body>
+	<br></br><h2>
+		<h:outputText value="Consulta de total facturas de camareros por fecha:"></h:outputText>
+	</h2><br></br>
+	<h:form>
+		<h:dataTable value="#{camareroBean.consultarCamarero()}" var="camarero" border="1">
+			<h:column>
+				<f:facet name="header">Identificacion</f:facet>
+				<h:outputText value="#{camarero.id}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nombre</f:facet>
+				<h:outputText value="#{camarero.nombre}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Apellido 1</f:facet>
+				<h:outputText value="#{camarero.apellido1}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Apellido 2</f:facet>
+				<h:outputText value="#{camarero.apellido2}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Fecha factura</f:facet>
+				<h:outputText value="#{camarero.fecha}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Total factura</f:facet>
+				<h:outputText value="#{camarero.total}"></h:outputText>
+			</h:column>
+		</h:dataTable>
+	</h:form><br></br>
+	
+	<h:form>   
+		<h:commandButton value="Regresar" action="#{camareroBean.volver()}"></h:commandButton>
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<title>Mejor Cocina</title>
+</h:head>
+<h:body>
+	<br></br><h2>
+		<h:outputText value="Adicionar una nueva factura"></h:outputText>
+	</h2>
+	<h:form>
+            <h:panelGrid id="panel1" columns="2" border="1" 
+                         cellpadding="5" cellspacing="1" var="factura">
+                         
+                <f:facet name="header">
+                    <h:outputText value="Información básica"/>
+                </f:facet>
+	           		<h:outputLabel value="Cliente:"/>
+	           	 	<h:selectOneMenu value="#{factura.id_cliente}">
+					 <f:selectItems value="#{clienteBean.cargarCombo()}"
+					 	var="cliente"
+					 	itemValue="#{cliente.id}"
+					 	itemLabel="#{cliente.id}"
+					 	noSelectionValue=""/>
+					 	
+					</h:selectOneMenu>
+	                <h:outputLabel value="Camarero:"/>
+	                <h:selectOneMenu value="#{factura.id_camarero}">
+					 <f:selectItems value="#{camareroBean.cargarCombo()}"
+					 	var="camarero"
+					 	itemValue="#{camarero.id}"
+					 	itemLabel="#{camarero.id}"
+					 	noSelectionValue=""/>
+					 	
+					</h:selectOneMenu>
+	                <h:outputLabel value="Mesa:"/>
+	                <h:selectOneMenu value="#{factura.id_mesa}">
+					 <f:selectItems value="#{mesaBean.cargarCombo()}"
+					 	var="mesa"
+					 	itemValue="#{mesa.id}"
+					 	itemLabel="#{mesa.id}"
+					 	noSelectionValue=""/>
+					 	
+					</h:selectOneMenu>
+	                <h:outputLabel value="Fecha factura(YYYY-MM-DD)"/>
+	                <h:inputText value="#{factura.fecha}" id="ff"/>
+	                
+	                <h:outputLabel value="Plato consumido:"/>
+	                <h:selectOneMenu value = "#{factura.plato}"> 
+   						<f:selectItem itemValue = "CEVICHE DE CAMARON" itemLabel = "CEVICHE DE CAMARON" /> 
+   						<f:selectItem itemValue = "SALMON AL AJILLO" itemLabel = "SALMON AL AJILLO" />
+   						<f:selectItem itemValue = "CANGREJO SALSA DE LIMON" itemLabel = "CANGREJO SALSA DE LIMON" />
+   						<f:selectItem itemValue = "AJIACO CON POLLO" itemLabel = "AJIACO CON POLLO" />
+   						<f:selectItem itemValue = "TAMAL VALLUNO" itemLabel = "TAMAL VALLUNO" />
+   						<f:selectItem itemValue = "BANDEJA PAISA" itemLabel = "BANDEJA PAISA" />
+   						<f:selectItem itemValue = "LANGOSTA EN SALSA DULCE" itemLabel = "LANGOSTA EN SALSA DULCE" />
+					</h:selectOneMenu> 
+	                <h:outputLabel value="Valor plato $:"/>
+	                <h:inputText value="#{factura.valor}" id="vp"/>
+	                
+                <f:facet name="footer">
+                    <h:commandButton value="Guardar" action="#{facturaBean.guardar(factura)}"></h:commandButton>
+                </f:facet>
+            </h:panelGrid>
+   </h:form><br></br>
+	
+	<h:form>   
+		<h:commandButton value="Regresar" action="#{facturaBean.volver()}"></h:commandButton>
+	</h:form>
+</h:body>
+</html>

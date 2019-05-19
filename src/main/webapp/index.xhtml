@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<title>Mejor Cocina</title>
+</h:head>
+<h:body>
+	<br></br>
+	<h1>
+		<h:outputLabel value="Herramienta administrativa La Mejor Cocina"/>
+	</h1>
+	<h2><h:outputLabel value="Menú principal"/></h2><br></br>
+	<h:form>
+            <h:panelGrid id="panel1" columns="2" border="1" cellpadding="5" cellspacing="1">
+                         
+                <f:facet name="header">
+                    <h:outputText value="ACCIONES DISPONIBLES"/>
+                </f:facet>
+                
+                <h:outputLabel value="Adicionar nueva factura"/>
+                <h:commandButton value="Adicionar" action="#{facturaBean.ejecutarFactura()}">
+                </h:commandButton>
+                
+                <h:outputLabel value="Consulta camareros-factura"/>
+                <h:commandButton value="Consultar" action="#{camareroBean.ejecutarCamarero()}"></h:commandButton>
+                
+                <h:outputLabel value="Consulta clientes-consumo"/>
+                <h:commandButton value="Consultar" action="#{clienteBean.ejecutarCliente()}">
+                </h:commandButton>
+                
+                <f:facet name="footer">                    
+                </f:facet>
+            </h:panelGrid>
+   </h:form>
+</h:body>
+</html>
